@@ -596,6 +596,12 @@ class Output {
       stroke(COLORS.BASE);
       strokeWeight(0.5);
       line(outputX, outputY, outputX + 90, outputY + 36);
+
+      if (this.isHovered) {
+        fill(56, 36, 0, 25);
+        noStroke();
+        rect(outputX, outputY, 90, 36);
+      }
     }
   }
 
