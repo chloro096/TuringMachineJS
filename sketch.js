@@ -881,7 +881,7 @@ class Sheet {
   }
 
   isDefined(s) {
-    if (this.currentIndex === 2) return false;
+    if (this.currentIndex === this.maxIndex + 2) return false;
 
     switch (s) {
       case SIGMA.I:
