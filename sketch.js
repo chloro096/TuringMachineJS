@@ -804,8 +804,8 @@ class Sheet {
       row.keyPressed(key, keyCode);
     }
 
-    if (this.initIsHovered) {
-      if (key === "H" || "h") {
+    if (this.initIsHovered[0] || this.initIsHovered[1]) {
+      if (key === "H" || key === "h") {
         this.initState = -1;
       }
 
