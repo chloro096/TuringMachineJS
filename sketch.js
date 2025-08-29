@@ -333,6 +333,12 @@ class SectionQ {
     this.maxIndex = maxIndex;
     push();
 
+    if (this.data > maxIndex) {
+      fill(121, 14, 14, 100);
+      noStroke();
+      rect(qX, qY, 30, 36);
+    }
+
     let txt;
     if (this.data === -1) {
       txt = "H";
@@ -341,7 +347,11 @@ class SectionQ {
     } else {
       txt = this.data;
     }
-    fill(COLORS.BASE);
+    if (this.data > maxIndex) {
+      fill(COLORS.WHITE);
+    } else {
+      fill(COLORS.BASE);
+    }
     noStroke();
     textAlign(CENTER, CENTER);
     textFont(FONTS.REGULAR);
@@ -981,6 +991,12 @@ class Sheet {
 
     // init state
 
+    if (this.initState > this.maxIndex) {
+      fill(121, 14, 14, 100);
+      noStroke();
+      rect(this.position.x + 288, this.position.y + 44, 56, 36);
+    }
+
     noFill();
     stroke(COLORS.BASE);
     strokeWeight(1);
@@ -996,7 +1012,11 @@ class Sheet {
     } else {
       txt = this.initState;
     }
-    fill(COLORS.BASE);
+    if (this.initState > this.maxIndex) {
+      fill(COLORS.WHITE);
+    } else {
+      fill(COLORS.BASE);
+    }
     noStroke();
     textAlign(CENTER, CENTER);
     textFont(FONTS.REGULAR);
