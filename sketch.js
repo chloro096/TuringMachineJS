@@ -451,6 +451,17 @@ class SectionD {
     }
   }
 
+  keyPressed(key, keyCode) {
+    if (!this.isHovered) return;
+
+    if (keyCode === LEFT_ARROW) {
+      this.data = D.L;
+    }
+    if (keyCode === RIGHT_ARROW) {
+      this.data = D.R;
+    }
+  }
+
   draw(dX, dY) {
     push();
     if (this.data === D.L) {
@@ -550,6 +561,7 @@ class Output {
 
   keyPressed(key, keyCode) {
     this.data.S.keyPressed(key, keyCode);
+    this.data.D.keyPressed(key, keyCode);
 
     if (keyCode === DELETE && this.isHovered) {
       this.delete();
