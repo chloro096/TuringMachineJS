@@ -33,6 +33,11 @@ const SIGMA = {
   B: "B",
 };
 
+const Q_STATE = {
+  ONE: 0,
+  TEN: 1,
+};
+
 const ROW_MODE = {
   STATE: 0,
   ADD: 1,
@@ -250,6 +255,8 @@ class SectionQ {
     this.data = -1;
     this.isHovered = [false, false];
     this.maxIndex = 0;
+    this.inputState = Q_STATE.ONE;
+    this.buffer = 0;
   }
 
   read() {
@@ -281,9 +288,44 @@ class SectionQ {
   click() {
     if (this.isHovered[0]) {
       this.decrement(this.maxIndex);
+      this.inputState = Q_STATE.ONE;
     }
     if (this.isHovered[1]) {
       this.increment(this.maxIndex);
+      this.inputState = Q_STATE.ONE;
+    }
+  }
+
+  keyPressed(key, keyCode) {
+    if (!this.isHovered[0] && !this.isHovered[1]) return;
+
+    if (key === "H" || key === "h") {
+      this.data = -1;
+    }
+
+    let num = parseInt(key);
+
+    if (Number.isInteger(num)) {
+      switch (this.inputState) {
+        case Q_STATE.ONE:
+          this.buffer = num;
+          if (this.buffer <= this.maxIndex) {
+            this.data = this.buffer;
+            this.inputState = Q_STATE.TEN;
+          }
+          break;
+
+        case Q_STATE.TEN:
+          if (this.buffer * 10 + num <= this.maxIndex) {
+            this.data = this.buffer * 10 + num;
+            this.buffer = 0;
+            this.inputState = Q_STATE.ONE;
+          } else if (num <= this.maxIndex) {
+            this.buffer = num;
+            this.data = num;
+          }
+          break;
+      }
     }
   }
 
@@ -560,6 +602,7 @@ class Output {
   }
 
   keyPressed(key, keyCode) {
+    this.data.Q.keyPressed(key, keyCode);
     this.data.S.keyPressed(key, keyCode);
     this.data.D.keyPressed(key, keyCode);
 
@@ -676,6 +719,8 @@ class Sheet {
 
     this.addIsHovered = false;
     this.initIsHovered = [false, false];
+    this.inputState = Q_STATE.ONE;
+    this.buffer = -1;
   }
 
   setMode(_isInputMode) {
@@ -741,6 +786,37 @@ class Sheet {
   keyPressed(key, keyCode) {
     for (let row of this.rows) {
       row.keyPressed(key, keyCode);
+    }
+
+    if (this.initIsHovered) {
+      if (key === "H" || "h") {
+        this.initState = -1;
+      }
+
+      let num = parseInt(key);
+
+      if (Number.isInteger(num)) {
+        switch (this.inputState) {
+          case Q_STATE.ONE:
+            this.buffer = num;
+            if (this.buffer <= this.maxIndex) {
+              this.initState = this.buffer;
+              this.inputState = Q_STATE.TEN;
+            }
+            break;
+
+          case Q_STATE.TEN:
+            if (this.buffer * 10 + num <= this.maxIndex) {
+              this.initState = this.buffer * 10 + num;
+              this.buffer = 0;
+              this.inputState = Q_STATE.ONE;
+            } else if (num <= this.maxIndex) {
+              this.buffer = num;
+              this.initState = num;
+            }
+            break;
+        }
+      }
     }
   }
 
