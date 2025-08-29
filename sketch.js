@@ -370,6 +370,20 @@ class SectionS {
     }
   }
 
+  keyPressed(key, keyCode) {
+    if (!this.isHovered) return;
+
+    if (key === "1") {
+      this.data = SIGMA.I;
+    }
+    if (key === "0") {
+      this.data = SIGMA.O;
+    }
+    if (key === "B" || key === "b") {
+      this.data = SIGMA.B;
+    }
+  }
+
   draw(sX, sY) {
     push();
     let bgColor, txtColor;
@@ -535,6 +549,8 @@ class Output {
   }
 
   keyPressed(key, keyCode) {
+    this.data.S.keyPressed(key, keyCode);
+
     if (keyCode === DELETE && this.isHovered) {
       this.delete();
     }
