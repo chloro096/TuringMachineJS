@@ -1312,7 +1312,7 @@ class TM {
   }
 
   eval() {
-    // this(isMoving()) return;
+    if (this.isMoving) return;
 
     switch (this.mode) {
       case TM_MODE.EXEC:
@@ -1369,6 +1369,7 @@ class TM {
         this.mode = TM_MODE.MOVE_TAPE;
         break;
       }
+
       case TM_MODE.MOVE_TAPE: {
         let d;
         if (!this.shutter[1]) {
