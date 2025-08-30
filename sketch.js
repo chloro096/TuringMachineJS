@@ -742,7 +742,11 @@ class Sheet {
   setMode(_isInputMode) {
     this.isInputMode = _isInputMode;
     if (_isInputMode) {
-      this.position = new Vec2(20, 0);
+      if (this.length > 400) {
+        this.position = new Vec2(20, 0);
+      } else {
+        this.position = new Vec2(20, (400 - this.length) / 2);
+      }
     } else {
       this.position = new Vec2(20, 72);
     }
