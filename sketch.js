@@ -1303,6 +1303,7 @@ class TM {
     this.mode = TM_MODE.HALT;
     this.isExecuting = false;
     this.isMoving = false;
+    this.autoMove = true;
   }
 
   exec() {
@@ -1423,6 +1424,9 @@ class TM {
     } else {
       this.isMoving = false;
     }
+
+    if (this.autoMove && this.isExecuting) this.eval();
+
     push();
 
     // background
