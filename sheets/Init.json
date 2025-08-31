@@ -1,0 +1,103 @@
+{
+  "initState": -1,
+  "maxIndex": 0,
+  "isInputMode": false,
+  "position": {
+    "x": 20,
+    "y": 72
+  },
+  "length": 268,
+  "isMoving": false,
+  "currentIndex": 1,
+  "moveDirection": 0,
+  "moveSpeed": 4,
+  "finalPosition": {
+    "x": 20,
+    "y": 72
+  },
+  "rows": [
+    {
+      "stateIndex": 0,
+      "outputI": {
+        "isDefined": true,
+        "isHovered": false,
+        "data": {
+          "Q": {
+            "data": -1,
+            "isHovered": [
+              false,
+              false
+            ],
+            "maxIndex": 0,
+            "inputState": 0,
+            "buffer": 0
+          },
+          "S": {
+            "data": "B",
+            "isHovered": false
+          },
+          "D": {
+            "data": "L",
+            "isHovered": false
+          }
+        }
+      },
+      "outputO": {
+        "isDefined": true,
+        "isHovered": false,
+        "data": {
+          "Q": {
+            "data": -1,
+            "isHovered": [
+              false,
+              false
+            ],
+            "maxIndex": 0,
+            "inputState": 0,
+            "buffer": 0
+          },
+          "S": {
+            "data": "B",
+            "isHovered": false
+          },
+          "D": {
+            "data": "L",
+            "isHovered": false
+          }
+        }
+      },
+      "outputB": {
+        "isDefined": true,
+        "isHovered": false,
+        "data": {
+          "Q": {
+            "data": -1,
+            "isHovered": [
+              false,
+              false
+            ],
+            "maxIndex": 0,
+            "inputState": 0,
+            "buffer": 0
+          },
+          "S": {
+            "data": "B",
+            "isHovered": false
+          },
+          "D": {
+            "data": "L",
+            "isHovered": false
+          }
+        }
+      },
+      "isHovered": false
+    }
+  ],
+  "addIsHovered": false,
+  "initIsHovered": [
+    false,
+    false
+  ],
+  "inputState": 0,
+  "buffer": -1
+}

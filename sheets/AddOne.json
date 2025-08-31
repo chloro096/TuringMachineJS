@@ -1,0 +1,483 @@
+{
+  "initState": 0,
+  "maxIndex": 5,
+  "isInputMode": false,
+  "position": {
+    "x": 20,
+    "y": 72
+  },
+  "length": 448,
+  "isMoving": false,
+  "currentIndex": 1,
+  "moveDirection": 0,
+  "moveSpeed": 4,
+  "finalPosition": {
+    "x": 20,
+    "y": 72
+  },
+  "rows": [
+    {
+      "stateIndex": 0,
+      "outputI": {
+        "isDefined": true,
+        "isHovered": false,
+        "data": {
+          "Q": {
+            "data": 1,
+            "isHovered": [
+              false,
+              false
+            ],
+            "maxIndex": 5,
+            "inputState": 1,
+            "buffer": 1
+          },
+          "S": {
+            "data": "1",
+            "isHovered": false
+          },
+          "D": {
+            "data": "R",
+            "isHovered": false
+          }
+        }
+      },
+      "outputO": {
+        "isDefined": true,
+        "isHovered": false,
+        "data": {
+          "Q": {
+            "data": 1,
+            "isHovered": [
+              false,
+              false
+            ],
+            "maxIndex": 5,
+            "inputState": 1,
+            "buffer": 1
+          },
+          "S": {
+            "data": "0",
+            "isHovered": false
+          },
+          "D": {
+            "data": "R",
+            "isHovered": false
+          }
+        }
+      },
+      "outputB": {
+        "isDefined": true,
+        "isHovered": false,
+        "data": {
+          "Q": {
+            "data": 2,
+            "isHovered": [
+              false,
+              false
+            ],
+            "maxIndex": 5,
+            "inputState": 1,
+            "buffer": 2
+          },
+          "S": {
+            "data": "B",
+            "isHovered": false
+          },
+          "D": {
+            "data": "R",
+            "isHovered": false
+          }
+        }
+      },
+      "isHovered": false
+    },
+    {
+      "stateIndex": 1,
+      "outputI": {
+        "isDefined": true,
+        "isHovered": false,
+        "data": {
+          "Q": {
+            "data": 1,
+            "isHovered": [
+              false,
+              false
+            ],
+            "maxIndex": 5,
+            "inputState": 1,
+            "buffer": 1
+          },
+          "S": {
+            "data": "1",
+            "isHovered": false
+          },
+          "D": {
+            "data": "R",
+            "isHovered": false
+          }
+        }
+      },
+      "outputO": {
+        "isDefined": true,
+        "isHovered": false,
+        "data": {
+          "Q": {
+            "data": 1,
+            "isHovered": [
+              false,
+              false
+            ],
+            "maxIndex": 5,
+            "inputState": 1,
+            "buffer": 1
+          },
+          "S": {
+            "data": "0",
+            "isHovered": false
+          },
+          "D": {
+            "data": "R",
+            "isHovered": false
+          }
+        }
+      },
+      "outputB": {
+        "isDefined": true,
+        "isHovered": false,
+        "data": {
+          "Q": {
+            "data": 3,
+            "isHovered": [
+              false,
+              false
+            ],
+            "maxIndex": 5,
+            "inputState": 1,
+            "buffer": 3
+          },
+          "S": {
+            "data": "B",
+            "isHovered": false
+          },
+          "D": {
+            "data": "L",
+            "isHovered": false
+          }
+        }
+      },
+      "isHovered": false
+    },
+    {
+      "stateIndex": 2,
+      "outputI": {
+        "isDefined": true,
+        "isHovered": false,
+        "data": {
+          "Q": {
+            "data": 2,
+            "isHovered": [
+              false,
+              false
+            ],
+            "maxIndex": 5,
+            "inputState": 1,
+            "buffer": 2
+          },
+          "S": {
+            "data": "1",
+            "isHovered": false
+          },
+          "D": {
+            "data": "R",
+            "isHovered": false
+          }
+        }
+      },
+      "outputO": {
+        "isDefined": true,
+        "isHovered": false,
+        "data": {
+          "Q": {
+            "data": 2,
+            "isHovered": [
+              false,
+              false
+            ],
+            "maxIndex": 5,
+            "inputState": 1,
+            "buffer": 2
+          },
+          "S": {
+            "data": "0",
+            "isHovered": false
+          },
+          "D": {
+            "data": "R",
+            "isHovered": false
+          }
+        }
+      },
+      "outputB": {
+        "isDefined": true,
+        "isHovered": false,
+        "data": {
+          "Q": {
+            "data": 3,
+            "isHovered": [
+              false,
+              false
+            ],
+            "maxIndex": 5,
+            "inputState": 1,
+            "buffer": 3
+          },
+          "S": {
+            "data": "B",
+            "isHovered": false
+          },
+          "D": {
+            "data": "L",
+            "isHovered": false
+          }
+        }
+      },
+      "isHovered": false
+    },
+    {
+      "stateIndex": 3,
+      "outputI": {
+        "isDefined": true,
+        "isHovered": false,
+        "data": {
+          "Q": {
+            "data": 3,
+            "isHovered": [
+              false,
+              false
+            ],
+            "maxIndex": 5,
+            "inputState": 1,
+            "buffer": 3
+          },
+          "S": {
+            "data": "0",
+            "isHovered": false
+          },
+          "D": {
+            "data": "L",
+            "isHovered": false
+          }
+        }
+      },
+      "outputO": {
+        "isDefined": true,
+        "isHovered": false,
+        "data": {
+          "Q": {
+            "data": 4,
+            "isHovered": [
+              false,
+              false
+            ],
+            "maxIndex": 5,
+            "inputState": 1,
+            "buffer": 4
+          },
+          "S": {
+            "data": "1",
+            "isHovered": false
+          },
+          "D": {
+            "data": "L",
+            "isHovered": false
+          }
+        }
+      },
+      "outputB": {
+        "isDefined": true,
+        "isHovered": false,
+        "data": {
+          "Q": {
+            "data": 4,
+            "isHovered": [
+              false,
+              false
+            ],
+            "maxIndex": 5,
+            "inputState": 1,
+            "buffer": 4
+          },
+          "S": {
+            "data": "1",
+            "isHovered": false
+          },
+          "D": {
+            "data": "L",
+            "isHovered": false
+          }
+        }
+      },
+      "isHovered": false
+    },
+    {
+      "stateIndex": 4,
+      "outputI": {
+        "isDefined": true,
+        "isHovered": false,
+        "data": {
+          "Q": {
+            "data": 4,
+            "isHovered": [
+              false,
+              false
+            ],
+            "maxIndex": 5,
+            "inputState": 1,
+            "buffer": 4
+          },
+          "S": {
+            "data": "1",
+            "isHovered": false
+          },
+          "D": {
+            "data": "L",
+            "isHovered": false
+          }
+        }
+      },
+      "outputO": {
+        "isDefined": true,
+        "isHovered": false,
+        "data": {
+          "Q": {
+            "data": 4,
+            "isHovered": [
+              false,
+              false
+            ],
+            "maxIndex": 5,
+            "inputState": 1,
+            "buffer": 4
+          },
+          "S": {
+            "data": "0",
+            "isHovered": false
+          },
+          "D": {
+            "data": "L",
+            "isHovered": false
+          }
+        }
+      },
+      "outputB": {
+        "isDefined": true,
+        "isHovered": false,
+        "data": {
+          "Q": {
+            "data": 5,
+            "isHovered": [
+              false,
+              false
+            ],
+            "maxIndex": 5,
+            "inputState": 1,
+            "buffer": 5
+          },
+          "S": {
+            "data": "B",
+            "isHovered": false
+          },
+          "D": {
+            "data": "L",
+            "isHovered": false
+          }
+        }
+      },
+      "isHovered": false
+    },
+    {
+      "stateIndex": 5,
+      "outputI": {
+        "isDefined": true,
+        "isHovered": false,
+        "data": {
+          "Q": {
+            "data": -1,
+            "isHovered": [
+              false,
+              false
+            ],
+            "maxIndex": 5,
+            "inputState": 0,
+            "buffer": 0
+          },
+          "S": {
+            "data": "1",
+            "isHovered": false
+          },
+          "D": {
+            "data": "R",
+            "isHovered": false
+          }
+        }
+      },
+      "outputO": {
+        "isDefined": true,
+        "isHovered": false,
+        "data": {
+          "Q": {
+            "data": -1,
+            "isHovered": [
+              false,
+              false
+            ],
+            "maxIndex": 5,
+            "inputState": 0,
+            "buffer": 0
+          },
+          "S": {
+            "data": "0",
+            "isHovered": false
+          },
+          "D": {
+            "data": "R",
+            "isHovered": false
+          }
+        }
+      },
+      "outputB": {
+        "isDefined": true,
+        "isHovered": false,
+        "data": {
+          "Q": {
+            "data": -1,
+            "isHovered": [
+              false,
+              false
+            ],
+            "maxIndex": 5,
+            "inputState": 0,
+            "buffer": 0
+          },
+          "S": {
+            "data": "B",
+            "isHovered": false
+          },
+          "D": {
+            "data": "R",
+            "isHovered": false
+          }
+        }
+      },
+      "isHovered": false
+    }
+  ],
+  "addIsHovered": false,
+  "initIsHovered": [
+    false,
+    false
+  ],
+  "inputState": 0,
+  "buffer": -1
+}

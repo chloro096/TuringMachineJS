@@ -228,21 +228,14 @@ class Tape {
   }
 
   read() {
-    if (!this.isMoving) {
-      return this.cells[this.currentCell].read();
-    }
+    return this.cells[this.currentCell].read();
   }
 
   write(s) {
-    if (this.isMoving) return;
     this.cells[this.currentCell].write(s);
   }
 
   init(s) {
-    if (this.isMoving) {
-      return;
-    }
-
     for (let i = this.leftCell; i <= this.rightCell; i++) {
       const cell = this.cells[i];
       if (cell.isHovered) cell.write(s);
@@ -251,8 +244,8 @@ class Tape {
 }
 
 class SectionQ {
-  constructor() {
-    this.data = -1;
+  constructor(_data) {
+    this.data = _data.data;
     this.isHovered = [false, false];
     this.maxIndex = 0;
     this.inputState = Q_STATE.ONE;
@@ -391,8 +384,8 @@ class SectionQ {
 }
 
 class SectionS {
-  constructor() {
-    this.data = SIGMA.B;
+  constructor(_data) {
+    this.data = _data.data;
     this.isHovered = false;
   }
 
@@ -480,8 +473,8 @@ class SectionS {
 }
 
 class SectionD {
-  constructor() {
-    this.data = D.L;
+  constructor(_data) {
+    this.data = _data.data;
     this.isHovered = false;
   }
 
@@ -543,13 +536,13 @@ class SectionD {
 }
 
 class Output {
-  constructor() {
-    this.isDefined = true;
+  constructor(_data) {
+    this.isDefined = _data.isDefined;
     this.isHovered = false;
     this.data = {
-      Q: new SectionQ(),
-      S: new SectionS(),
-      D: new SectionD(),
+      Q: new SectionQ(_data.data.Q),
+      S: new SectionS(_data.data.S),
+      D: new SectionD(_data.data.D),
     };
   }
 
@@ -629,11 +622,11 @@ class Output {
 }
 
 class Row {
-  constructor(_stateIndex) {
-    this.stateIndex = _stateIndex;
-    this.outputI = new Output();
-    this.outputO = new Output();
-    this.outputB = new Output();
+  constructor(_data) {
+    this.stateIndex = _data.stateIndex;
+    this.outputI = new Output(_data.outputI);
+    this.outputO = new Output(_data.outputO);
+    this.outputB = new Output(_data.outputB);
     this.isHovered = false;
   }
 
@@ -715,10 +708,78 @@ class Row {
   }
 }
 
+let initRowData = {
+  stateIndex: 0,
+  outputI: {
+    isDefined: true,
+    isHovered: false,
+    data: {
+      Q: {
+        data: -1,
+        isHovered: [false, false],
+        maxIndex: 0,
+        inputState: 0,
+        buffer: 0,
+      },
+      S: {
+        data: "B",
+        isHovered: false,
+      },
+      D: {
+        data: "L",
+        isHovered: false,
+      },
+    },
+  },
+  outputO: {
+    isDefined: true,
+    isHovered: false,
+    data: {
+      Q: {
+        data: -1,
+        isHovered: [false, false],
+        maxIndex: 0,
+        inputState: 0,
+        buffer: 0,
+      },
+      S: {
+        data: "B",
+        isHovered: false,
+      },
+      D: {
+        data: "L",
+        isHovered: false,
+      },
+    },
+  },
+  outputB: {
+    isDefined: true,
+    isHovered: false,
+    data: {
+      Q: {
+        data: -1,
+        isHovered: [false, false],
+        maxIndex: 0,
+        inputState: 0,
+        buffer: 0,
+      },
+      S: {
+        data: "B",
+        isHovered: false,
+      },
+      D: {
+        data: "L",
+        isHovered: false,
+      },
+    },
+  },
+  isHovered: false,
+};
+
 class Sheet {
-  constructor() {
-    this.initState = -1;
-    this.maxIndex = 0;
+  constructor(_data) {
+    this.initState = _data.initState;
+    this.maxIndex = _data.maxIndex;
 
     this.isInputMode = false;
     this.position = new Vec2(20, 72);
@@ -731,7 +792,9 @@ class Sheet {
     this.finalPosition = new Vec2(20, 72);
 
     this.rows = [];
-    this.rows.push(new Row(0));
+    for (let i = 0; i < _data.rows.length; i++) {
+      this.rows.push(new Row(_data.rows[i]));
+    }
 
     this.addIsHovered = false;
     this.initIsHovered = [false, false];
@@ -779,7 +842,10 @@ class Sheet {
 
     if (this.addIsHovered) {
       this.maxIndex += 1;
-      this.rows.push(new Row(this.maxIndex));
+
+      let data = initRowData;
+      data.stateIndex = this.maxIndex;
+      this.rows.push(new Row(data));
     }
 
     if (this.initIsHovered[0]) {
@@ -1292,10 +1358,102 @@ class Button {
   }
 }
 
+const sheetInitData = {
+  initState: -1,
+  maxIndex: 0,
+  isInputMode: false,
+  position: {
+    x: 20,
+    y: 72,
+  },
+  length: 268,
+  isMoving: false,
+  currentIndex: 1,
+  moveDirection: 0,
+  moveSpeed: 4,
+  finalPosition: {
+    x: 20,
+    y: 72,
+  },
+  rows: [
+    {
+      stateIndex: 0,
+      outputI: {
+        isDefined: true,
+        isHovered: false,
+        data: {
+          Q: {
+            data: -1,
+            isHovered: [false, false],
+            maxIndex: 0,
+            inputState: 0,
+            buffer: 0,
+          },
+          S: {
+            data: "B",
+            isHovered: false,
+          },
+          D: {
+            data: "L",
+            isHovered: false,
+          },
+        },
+      },
+      outputO: {
+        isDefined: true,
+        isHovered: false,
+        data: {
+          Q: {
+            data: -1,
+            isHovered: [false, false],
+            maxIndex: 0,
+            inputState: 0,
+            buffer: 0,
+          },
+          S: {
+            data: "B",
+            isHovered: false,
+          },
+          D: {
+            data: "L",
+            isHovered: false,
+          },
+        },
+      },
+      outputB: {
+        isDefined: true,
+        isHovered: false,
+        data: {
+          Q: {
+            data: -1,
+            isHovered: [false, false],
+            maxIndex: 0,
+            inputState: 0,
+            buffer: 0,
+          },
+          S: {
+            data: "B",
+            isHovered: false,
+          },
+          D: {
+            data: "L",
+            isHovered: false,
+          },
+        },
+      },
+      isHovered: false,
+    },
+  ],
+  addIsHovered: false,
+  initIsHovered: [false, false],
+  inputState: 0,
+  buffer: -1,
+};
+
 class TM {
   constructor() {
     this.tape = new Tape();
-    this.sheet = new Sheet();
+    this.sheet = new Sheet(sheetInitData);
     this.rever = new Rever(250, 20);
     this.button = new Button(340, 20);
     this.shutter = [true, true, true, true];
@@ -1506,13 +1664,29 @@ class TM {
 let machine;
 let FONTS = {};
 
+function handleFile(file) {
+  console.log("ファイルが選択されました:", file);
+
+  if (file.subtype === "json") {
+    console.log("ファイルからマシンの状態を復元しました。");
+    console.log(file.data);
+    machine.sheet = new Sheet(file.data);
+  } else {
+    console.log("JSONファイルを選択してください。");
+  }
+}
+
 function setup() {
   FONTS = {
     REGULAR: loadFont("assets/InriaSans-Regular.ttf"),
     BOLD: loadFont("assets/InriaSans-Bold.ttf"),
   };
   textFont(FONTS.REGULAR);
+
   createCanvas(400, 400);
+  let fileInput = createFileInput(handleFile);
+  fileInput.position(10, 410);
+
   machine = new TM();
 }
 
@@ -1545,6 +1719,9 @@ function keyPressed() {
       }
       if (keyCode === LEFT_ARROW) {
         machine.tape.move(D.L);
+      }
+      if (key === "S" || key === "s") {
+        saveJSON(machine.sheet, "sheet.json");
       }
     }
   }
