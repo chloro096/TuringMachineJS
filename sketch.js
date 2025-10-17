@@ -1461,6 +1461,7 @@ class TM {
     this.mode = TM_MODE.HALT;
     this.isExecuting = false;
     this.isMoving = false;
+    this.menu = true;
     this.autoMove = true;
   }
 
@@ -1696,7 +1697,8 @@ function draw() {
 }
 
 function keyPressed() {
-  if (machine.sheet.isInputMode) {
+  if (machine.menu) {
+  } else if (machine.sheet.isInputMode) {
     machine.sheet.keyPressed(key, keyCode);
   } else {
     if (key === "0") {
@@ -1728,7 +1730,8 @@ function keyPressed() {
 }
 
 function mouseClicked() {
-  if (machine.sheet.isInputMode) {
+  if (machine.menu) {
+  } else if (machine.sheet.isInputMode) {
     if (machine.sheet.isHovered()) {
       machine.sheet.click();
     } else {
