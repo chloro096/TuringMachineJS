@@ -1461,7 +1461,7 @@ class TM {
     this.mode = TM_MODE.HALT;
     this.isExecuting = false;
     this.isMoving = false;
-    this.menu = true;
+    this.menu = false;
     this.autoMove = true;
   }
 
@@ -1721,6 +1721,10 @@ function keyPressed() {
       }
       if (keyCode === LEFT_ARROW) {
         machine.tape.move(D.L);
+      }
+      if (keyCode === ENTER) {
+        machine.rever.move();
+        machine.exec();
       }
       if (key === "S" || key === "s") {
         saveJSON(machine.sheet, "sheet.json");
